@@ -15,30 +15,40 @@ export default {
   data() {
     return {
       results: [],
+      cache: {},
     };
   },
   methods: {
-    fetchData() {
-      return axios
-        .get("https://api.duckduckgo.com/?q=test&format=json")
-        .then((response) => {
-          this.results = response.data.results;
-        })
-        .catch((error) => {
-          console.error("API Error:", error);
-        });
+    fetchData(query) {
+      if (this.cache[query]) {
+        // Use cached data
+        this.results = this.cache[query];
+        return Promise.resolve(this.results);
+      } else {
+        // Fetch new data
+        return axios
+          .get(`https://api.duckduckgo.com/?q=${query}&format=json`)
+          .then((response) => {
+            this.results = response.data.results;
+            this.cache[query] = this.results;
+            return this.results;
+          })
+          .catch((error) => {
+            console.error("API Error:", error);
+          });
+      }
     },
-    setCache(key, value) {
+    setLocalStorage(key, value) {
       localStorage.setItem(key, value);
     },
-    getCache(key) {
+    getLocalStorage(key) {
       return localStorage.getItem(key);
     },
   },
   mounted() {
-    this.setCache("test-key", "test-value");
-    console.log(this.getCache("test-key"));
-    this.fetchData();
+    this.setLocalStorage("test-key", "test-value");
+    console.log(this.getLocalStorage("test-key"));
+    this.fetchData("test-query");
   },
 };
 </script>
