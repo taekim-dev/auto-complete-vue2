@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
     "vue": "^2.6.14",
@@ -66,6 +67,19 @@
     "not dead"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
+    "preset": "@vue/cli-plugin-unit-jest",
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "node_modules/axios/.+\\.js$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!axios)"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "moduleFileExtensions": ["js", "json", "vue"],
+    "snapshotSerializers": ["jest-serializer-vue"],
+    "testMatch": ["**/tests/unit/**/*.spec.js"]
   }
 }
