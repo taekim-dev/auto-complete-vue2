@@ -27,3 +27,27 @@ The following features are not included in this MVP to maintain focus on perform
 - Advanced component reusability for future expansions.
 - In-depth user experience research and iterative design improvements.
 - Detailed UI/UX customizations and enhancements.
+
+### Context Diagram
+
+This diagram provides an overview of the system's environment and the interactions between external entities and the system.
+
+![Context Diagram](src/assets/images/context-diagram.png)
+
+### Component Diagram
+
+This diagram shows the structure and relationships between the various components in the application.
+
+![Component Diagram](src/assets/images/component-diagram.png)
+
+### Sequence Diagram
+
+This diagram illustrates the sequence of messages exchanged between objects to carry out a specific task.
+
+![Sequence Diagram](src/assets/images/sequence-diagram.png)
+
+### Deployment Diagram
+
+This diagram depicts the physical deployment of artifacts on nodes.
+
+![Deployment Diagram](src/assets/images/deployment-diagram.png)
