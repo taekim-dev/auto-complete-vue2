@@ -8,10 +8,15 @@ module.exports = defineConfig({
     }
   },
   pwa: {
-    workboxPluginMode: 'InjectManifest',
+    name: 'AUTO-COMPLETE-VUE2',
+    themeColor: '#4DBA87',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+    workboxPluginMode: 'GenerateSW',
     workboxOptions: {
-      swSrc: 'src/service-worker.js',
-      swDest: 'service-worker.js',
+      skipWaiting: true,
+      clientsClaim: true,
     },
   },
 });
