@@ -8,15 +8,10 @@ module.exports = defineConfig({
     }
   },
   pwa: {
-    name: 'AUTO-COMPLETE-VUE2',
-    themeColor: '#4DBA87',
-    msTileColor: '#000000',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-    workboxPluginMode: 'GenerateSW',
+    workboxPluginMode: 'GenerateSW', // Automatically generate the service worker
     workboxOptions: {
-      skipWaiting: true,
-      clientsClaim: true,
+      skipWaiting: true, // Activate new service worker immediately
+      clientsClaim: true, // Take control of clients immediately
     },
   },
 });
